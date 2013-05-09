@@ -2,12 +2,12 @@ PATH := /usr/bin:/bin:/usr/sbin:/sbin
 
 ORIG_PATH := $(PATH)
 PATH := /usr/bin:/bin:/usr/sbin:/sbin
-ITERM_PID=$(shell pgrep "iTerm")
+ITERM_PID=$(command pgrep "iTerm")
 APPS := /Applications
 ITERM_CONF_PLIST = $(HOME)/Library/Preferences/com.googlecode.iterm2.plist
-COMPACTDATE=$(shell date +"%Y%m%d")
-VERSION = $(shell cat version.txt | sed -e "s/%(extra)s/$(COMPACTDATE)/")
-NAME=$(shell echo $(VERSION) | sed -e "s/\\./_/g")
+COMPACTDATE=$(command date +"%Y%m%d")
+VERSION = $(command cat version.txt | sed -e "s/%(extra)s/$(COMPACTDATE)/")
+NAME=$(command echo $(VERSION) | sed -e "s/\\./_/g")
 
 .PHONY: clean all backup-old-iterm restart
 
